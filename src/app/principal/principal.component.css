@@ -1,0 +1,16 @@
+ul{
+  list-style: none;
+  background-color: grey;
+  height: 10%;
+}
+
+li{
+  display: inline;
+  margin: 10px;
+}
+
+#llista {
+  border-radius: 10px;
+  width: 180px;
+  height: 80px;
+}
