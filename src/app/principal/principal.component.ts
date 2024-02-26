@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {afterNextRender, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { io } from 'socket.io-client';
 import { NgForOf } from "@angular/common";
@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class PrincipalComponent  implements OnInit {
 
+  @ViewChild('content') contentRef: ElementRef;
+
   private socket: any;
   serverResponse: any;
   showvideo: any;
@@ -33,7 +35,10 @@ export class PrincipalComponent  implements OnInit {
 
 
   constructor(private http: HttpClient) {
-
+    afterNextRender(() => {
+      // Safe to check `scrollHeight` because this will only run in the browser, not the server.
+      console.log('content height: ' + this.contentRef.nativeElement.scrollHeight);
+    });
   }
 
   ngOnInit() {

@@ -1,11 +1,13 @@
-<button (click)="conexio()">Llistat de videos</button>
-<ul>
-  <li *ngFor="let video typeof videos"><button (click)="generarCodi(video.value)">{{ video.value }}</button></li>
-</ul>
+<html #content>
+  <button (click)="conexio()">Llistat de videos</button>
+  <ul>
+    <li *ngFor="let video typeof videos"><button (click)="generarCodi(video.value)">{{ video.value }}</button></li>
+  </ul>
 
 
 
-<div #videoContainer></div>
-<button (click)="video()">Veure video</button>
+  <div #videoContainer></div>
+  <button (click)="video()">Veure video</button>
 
-<a>hola</a>
+  <a>hola</a>
+</html>
